@@ -330,27 +330,45 @@
     });
   })();
 
-  /* ---------- PROCESSO: linha do tempo desenhando ---------- */
+  /* ---------- PROCESSO: linha do tempo desenhando, devagar, guiando a leitura ---------- */
   (function () {
     var section = document.getElementById('processo');
+    var wrap = section ? section.querySelector('.timeline') : null;
     var line = section ? section.querySelector('.timeline-line') : null;
+    var comet = section ? section.querySelector('.timeline-comet') : null;
     var dots = section ? section.querySelectorAll('.tl-dot') : [];
-    if (!line) return;
+    var steps = section ? section.querySelectorAll('.tl-step') : [];
+    if (!line || !wrap) return;
+
+    var n = dots.length;
+
+    function place(progress) {
+      gsap.set(line, { scaleX: progress });
+      if (comet) gsap.set(comet, { left: (progress * 100) + '%', autoAlpha: progress > 0.005 && progress < 0.995 ? 1 : 0 });
+      dots.forEach(function (d, i) {
+        var threshold = i / Math.max(1, n - 1);
+        d.classList.toggle('is-active', progress >= threshold - 0.03);
+      });
+      var idx = Math.min(n - 1, Math.floor(progress * n));
+      steps.forEach(function (s, i) { s.classList.toggle('is-current', i === idx); });
+    }
 
     if (prefersReduced) {
-      gsap.set(line, { scaleX: 1 });
-      dots.forEach(function (d) { d.classList.add('is-active'); });
+      place(1);
+      steps.forEach(function (s) { s.classList.add('is-current'); });
       return;
     }
 
-    ScrollTrigger.create({
-      trigger: section.querySelector('.timeline'), start: 'top 75%', end: 'bottom 60%', scrub: 0.6,
-      onUpdate: function (self) {
-        gsap.set(line, { scaleX: self.progress });
-        dots.forEach(function (d, i) {
-          var threshold = i / Math.max(1, dots.length - 1);
-          d.classList.toggle('is-active', self.progress >= threshold - 0.03);
+    ScrollTrigger.matchMedia({
+      '(min-width: 641px)': function () {
+        place(0);
+        ScrollTrigger.create({
+          trigger: wrap, start: 'top top', end: '+=180%', pin: true, scrub: 0.6, anticipatePin: 1,
+          onUpdate: function (self) { place(self.progress); }
         });
+      },
+      '(max-width: 640px)': function () {
+        steps.forEach(function (s) { s.classList.add('is-current'); });
       }
     });
   })();

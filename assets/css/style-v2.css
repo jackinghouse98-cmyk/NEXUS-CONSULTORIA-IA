@@ -380,12 +380,23 @@ section { padding: 150px 0; position: relative; z-index: 1; }
 /* ---------- PROCESSO ---------- */
 .timeline { position: relative; display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 28px; }
 .timeline-line { position:absolute; top:19px; left:0; right:0; height:1px; background: linear-gradient(90deg, var(--glow), var(--glow) 100%); z-index: 0; transform-origin: left center; transform: scaleX(0); box-shadow: 0 0 8px var(--glow-soft); }
-.tl-step { position:relative; z-index:1; }
+.timeline-comet {
+  position:absolute; top:19px; left:0; width:18px; height:18px; margin:-9px 0 0 -9px;
+  border-radius:50%; background: var(--glow); z-index:2; opacity:0; pointer-events:none;
+  box-shadow: 0 0 18px 5px var(--glow-soft), 0 0 38px 12px rgba(79,224,255,.22);
+  animation: tlCometPulse 1s ease-in-out infinite;
+}
+@keyframes tlCometPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.4); } }
+.tl-step { position:relative; z-index:1; opacity: .45; transition: opacity .5s ease; }
+.tl-step.is-current { opacity: 1; }
 .tl-step .tl-dot { width:14px; height:14px; border-radius:50%; background: rgba(79,224,255,.25); margin-bottom:22px; transition: background .3s ease, box-shadow .3s ease; }
 .tl-step .tl-dot.is-active { background: var(--glow); box-shadow: 0 0 14px var(--glow-soft), 0 0 0 4px rgba(79,224,255,.12); }
 .tl-step h3 { font-size:16px; margin-bottom:8px; color:#fff; }
 .tl-step p { font-size:14px; color:var(--text-dim); margin:0; }
-@media (max-width: 640px) { .timeline-line { display:none; } }
+@media (max-width: 640px) {
+  .timeline-line, .timeline-comet { display:none; }
+  .tl-step, .tl-step.is-current { opacity: 1; }
+}
 
 /* ---------- FAQ ---------- */
 .faq-item { border-bottom: 1px solid rgba(255,255,255,.08); }
