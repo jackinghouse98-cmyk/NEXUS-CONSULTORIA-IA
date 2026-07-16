@@ -129,8 +129,7 @@
     if (!hero) return;
 
     gsap.timeline({ delay: prefersReduced ? 0 : 0.15 })
-      .fromTo('.hero-badge', { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, ease: 'power2.out' })
-      .fromTo('.hero h1', { y: 26, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8, ease: 'power2.out' }, '-=0.45')
+      .fromTo('.hero h1', { y: 26, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8, ease: 'power2.out' })
       .fromTo('.hero p.sub', { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, ease: 'power2.out' }, '-=0.5')
       .fromTo('.hero-ctas', { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, ease: 'power2.out' }, '-=0.45')
       .fromTo('.trust-chips span', { y: 12, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.35')
