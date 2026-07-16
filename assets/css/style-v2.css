@@ -295,11 +295,12 @@ section { padding: 150px 0; position: relative; z-index: 1; }
 .ai-col[data-speed="fast"] .ai-col-track { animation-duration: 20s; }
 @keyframes aiScrollUp { from{transform:translateY(0);} to{transform:translateY(-50%);} }
 @keyframes aiScrollDown { from{transform:translateY(-50%);} to{transform:translateY(0);} }
-.ai-item { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: .5px; text-align: center; color: var(--text-dimmer); white-space: nowrap; }
+.ai-item { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: .5px; text-align: center; color: var(--text-dimmer); white-space: nowrap; }
 .ai-item.is-accent { color: var(--glow); text-shadow: 0 0 14px var(--glow-soft); }
+.ai-icon { width: 24px; height: 24px; flex-shrink: 0; display: block; }
 .ai-marquee-note { text-align: center; margin-top: 28px; font-size: 12px; color: var(--text-dimmer); }
 @media (prefers-reduced-motion: reduce) { .ai-col-track { animation: none; } }
-@media (max-width: 760px) { .ai-marquee-row { height: 260px; } .ai-col[data-speed="fast"] { display: none; } .ai-item { font-size: 16px; } }
+@media (max-width: 760px) { .ai-marquee-row { height: 260px; } .ai-col[data-speed="fast"] { display: none; } .ai-item { font-size: 16px; gap: 7px; } .ai-icon { width: 18px; height: 18px; } }
 
 /* ---------- SERVIÇOS: pin gigante + chip ---------- */
 #planos {
