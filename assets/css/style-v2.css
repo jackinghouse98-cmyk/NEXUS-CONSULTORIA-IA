@@ -343,7 +343,6 @@ section { padding: 150px 0; position: relative; z-index: 1; }
 .pin-panel .plan-features li::before { content:'\2713'; color: var(--glow); font-weight:700; flex-shrink:0; }
 .pin-hint { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dimmer); z-index: 3; }
 @media (max-width: 760px) {
-  .pin-chip { width: 78vw; height: 78vw; }
   .pin-word { font-size: clamp(18px, 7vw, 30px); }
   .pin-panels { height: 340px; }
 }
