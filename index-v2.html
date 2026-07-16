@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#04070d">
+<title>Nexus — Inteligência Artificial Aplicada ao Seu Negócio</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/logo/nexus-favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;1,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style-v2.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<div id="preloader">
+  <div class="pl-frame">
+    <span class="pl-corner tl"></span>
+    <span class="pl-corner tr"></span>
+    <span class="pl-corner bl"></span>
+    <span class="pl-corner br"></span>
+    <svg class="logo-icon" viewBox="0 0 100 100" role="img" aria-hidden="true">
+      <line class="l-line" x1="25" y1="25" x2="25" y2="75"/>
+      <line class="l-line l2" x1="75" y1="25" x2="75" y2="75"/>
+      <line class="l-line l3" x1="25" y1="25" x2="75" y2="75"/>
+      <circle class="l-node" cx="25" cy="25" r="7"/>
+      <circle class="l-node" cx="25" cy="75" r="7"/>
+      <circle class="l-node" cx="75" cy="25" r="7"/>
+      <circle class="l-node" cx="75" cy="75" r="7"/>
+      <circle class="l-node l-center" cx="50" cy="50" r="6"/>
+    </svg>
+  </div>
+  <div class="pl-count">CARREGANDO <span class="n">0</span>%</div>
+</div>
+
+<div class="cursor-ring"></div>
+<div class="cursor-dot"></div>
+
+<div class="glow-orb" style="width:520px; height:520px; top:-160px; left:-160px; background:rgba(24,95,165,.28);"></div>
+<div class="glow-orb" style="width:420px; height:420px; top:900px; right:-120px; background:rgba(79,224,255,.12);"></div>
+
+<header>
+  <div class="container">
+    <div class="logo-mini">
+      <svg class="logo-icon" viewBox="0 0 100 100" role="img" aria-hidden="true">
+        <line class="l-line" x1="25" y1="25" x2="25" y2="75"/>
+        <line class="l-line l2" x1="75" y1="25" x2="75" y2="75"/>
+        <line class="l-line l3" x1="25" y1="25" x2="75" y2="75"/>
+        <circle class="l-node" cx="25" cy="25" r="7"/>
+        <circle class="l-node" cx="25" cy="75" r="7"/>
+        <circle class="l-node" cx="75" cy="25" r="7"/>
+        <circle class="l-node" cx="75" cy="75" r="7"/>
+        <circle class="l-node l-center" cx="50" cy="50" r="6"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-word">NEXUS <span class="l-ia">IA</span></span>
+        <span class="logo-tag">Consultoria Inteligente</span>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <a class="nav-link" href="#sobre">Sobre</a>
+      <a class="nav-link" href="#servicos">Serviços</a>
+      <a class="nav-link" href="#galeria">Trabalhos</a>
+      <a class="nav-link" href="#processo">Como funciona</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <a href="mailto:jackinghouse98@gmail.com?subject=Quero%20agendar%20uma%20conversa%20-%20Nexus" class="btn-glow">Agendar conversa</a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="bars"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a class="nav-link" href="#sobre">Sobre</a>
+  <a class="nav-link" href="#servicos">Serviços</a>
+  <a class="nav-link" href="#galeria">Trabalhos</a>
+  <a class="nav-link" href="#processo">Como funciona</a>
+  <a class="nav-link" href="#faq">FAQ</a>
+  <a href="mailto:jackinghouse98@gmail.com?subject=Quero%20agendar%20uma%20conversa%20-%20Nexus" class="btn-glow">Agendar conversa</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-photo" style="background-image:url('assets/img/nexus-hero-still.jpg')"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-scrim"></div>
+  <div class="container">
+    <div class="hero-top">
+      <div>
+        <div class="hero-badge"><span class="dot"></span>Consultoria de IA para pequenas e médias empresas</div>
+        <h1>Sua empresa perde tempo e dinheiro em tarefas que a IA já resolve</h1>
+        <p class="sub">Site, redes sociais, atendimento, planilhas e relatórios — a Nexus organiza e automatiza tudo isso pra você vender mais e trabalhar menos.</p>
+        <div class="hero-ctas">
+          <a href="mailto:jackinghouse98@gmail.com?subject=Quero%20agendar%20uma%20conversa%20-%20Nexus" class="btn-glow">Agendar diagnóstico gratuito</a>
+          <a href="#servicos" class="btn-line">Ver o que fazemos</a>
+        </div>
+        <div class="trust-chips">
+          <span>Diagnóstico direto, sem intermediário</span>
+          <span>Sem letra miúda no contrato</span>
+          <span>Você fala com quem implementa</span>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <div class="est">CONSULTORIA SOB MEDIDA</div>
+        <p class="tag">Atenção direta em cada projeto, desde o primeiro dia.</p>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
+    <span>Role para explorar</span>
+  </div>
+</section>
+
+<section id="sobre" class="giant-text-wrap">
+  <video class="gt-bg-video" data-bgvideo muted playsinline loop preload="none">
+    <source src="assets/video/nexus-hero-bg.mp4" type="video/mp4">
+  </video>
+  <div class="gt-scrim"></div>
+  <div class="container">
+    <div class="eyebrow">Sobre a Nexus</div>
+    <div class="giant-text">
+      <span class="gt-line">A Nexus é uma <span class="hl word-flip"><span class="wf-inner"><span class="wf-face wf-front">consultoria independente</span><span class="wf-face wf-back" aria-hidden="true">consultoria independente</span></span></span></span>
+      <span class="gt-line">que traduz <span class="hl-glow word-flip"><span class="wf-inner"><span class="wf-face wf-front">inteligência artificial</span><span class="wf-face wf-back" aria-hidden="true">inteligência artificial</span></span></span> em tempo e dinheiro de volta pro seu negócio.</span>
+      <span class="gt-line">Sem departamento de vendas. Sem fila de atendimento.</span>
+      <span class="gt-line">Você fala <span class="hl word-flip"><span class="wf-inner"><span class="wf-face wf-front">direto com quem implementa</span><span class="wf-face wf-back" aria-hidden="true">direto com quem implementa</span></span></span> — do</span>
+      <span class="gt-line">diagnóstico ao resultado, sem intermediário.</span>
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">O que fazemos</div>
+      <h2 class="section-title">Sete formas de tirar tarefa manual da sua rotina</h2>
+      <p class="section-sub">Cada serviço resolve um gargalo real de quem toca um negócio pequeno sozinho ou com equipe enxuta.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 3l9 6.5M5 9v11h14V9M9 20v-6h6v6"/></svg></div>
+        <h3>Sites institucionais</h3>
+        <p>Uma presença online que passa confiança antes mesmo da primeira conversa.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 9v11"/></svg></div>
+        <h3>Páginas de vendas</h3>
+        <p>Landing pages feitas pra converter visita em cliente, não só pra existir.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div>
+        <h3>Google Meu Negócio</h3>
+        <p>Seu negócio fácil de achar, com informação certa e avaliação bem cuidada.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4A8.5 8.5 0 0 1 4.3 15L3 20l5.1-1.3a8.4 8.4 0 0 1 3.9 1H12a8.5 8.5 0 0 0 9-8.2z"/></svg></div>
+        <h3>Mídias e automações</h3>
+        <p>Conteúdo e atendimento que continuam rodando mesmo quando você não está.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h3>Gestão de redes sociais</h3>
+        <p>Presença ativa nas redes, sem tomar o seu dia.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 19V9M11 19V5M18 19v-7"/></svg></div>
+        <h3>Dashboards inteligentes</h3>
+        <p>Todo número importante do negócio, num painel só, atualizado sozinho.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v4H4zM4 12h16v8H4z"/><path d="M8 16h2M8 12v8"/></svg></div>
+        <h3>Automação de planilhas e relatórios</h3>
+        <p>Relatório, planilha e orçamento prontos automaticamente, sem digitar tudo de novo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band-stack">
+  <div class="band-row">
+    <div class="band-track">
+      <span class="band-word">DIAGNÓSTICO <span class="dash">•</span></span>
+      <span class="band-word">DIAGNÓSTICO <span class="dash">•</span></span>
+      <span class="band-word">DIAGNÓSTICO <span class="dash">•</span></span>
+      <span class="band-word">DIAGNÓSTICO <span class="dash">•</span></span>
+    </div>
+  </div>
+  <div class="band-row">
+    <div class="band-track">
+      <span class="band-word">IMPLEMENTAÇÃO <span class="dash">•</span></span>
+      <span class="band-word">IMPLEMENTAÇÃO <span class="dash">•</span></span>
+      <span class="band-word">IMPLEMENTAÇÃO <span class="dash">•</span></span>
+      <span class="band-word">IMPLEMENTAÇÃO <span class="dash">•</span></span>
+    </div>
+  </div>
+  <div class="band-row">
+    <div class="band-track">
+      <span class="band-word">EVOLUÇÃO <span class="dash">•</span></span>
+      <span class="band-word">EVOLUÇÃO <span class="dash">•</span></span>
+      <span class="band-word">EVOLUÇÃO <span class="dash">•</span></span>
+      <span class="band-word">EVOLUÇÃO <span class="dash">•</span></span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Como a Nexus trabalha</div>
+      <h2 class="section-title">Um jeito direto, sem burocracia de agência grande</h2>
+    </div>
+    <div class="facts-grid">
+      <div class="fact-card">
+        <div class="fact-label">Abordagem</div>
+        <div class="fact-value">Direta e prática</div>
+        <p>Sem discurso de agência grande — resolvemos primeiro o que mais trava o seu negócio hoje.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-label">Atendimento</div>
+        <div class="fact-value">Direto</div>
+        <p>Quem faz o diagnóstico é quem implementa e acompanha. Sem intermediário, sem repetir a história pra pessoa nova.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-label">Foco</div>
+        <div class="fact-value">Negócio enxuto</div>
+        <p>Pensado pra quem toca a empresa sozinho ou com equipe pequena — sem exigir time técnico nem orçamento de multinacional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ecossistema" class="ai-marquee">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Ecossistema de IA</div>
+      <h2 class="section-title">Ferramentas que já movem negócios pelo mundo</h2>
+      <p class="section-sub">A Nexus conecta essas tecnologias à realidade da sua empresa — com estratégia, não modismo.</p>
+    </div>
+    <div class="ai-marquee-row" aria-hidden="true">
+      <div class="ai-col">
+        <div class="ai-col-track">
+          <span class="ai-item is-accent">ChatGPT</span>
+          <span class="ai-item is-accent">Claude</span>
+          <span class="ai-item">Gemini</span>
+          <span class="ai-item">Copilot</span>
+          <span class="ai-item">Perplexity</span>
+          <span class="ai-item">Grok</span>
+          <span class="ai-item">DeepSeek</span>
+          <span class="ai-item">Llama</span>
+          <span class="ai-item is-accent">ChatGPT</span>
+          <span class="ai-item is-accent">Claude</span>
+          <span class="ai-item">Gemini</span>
+          <span class="ai-item">Copilot</span>
+          <span class="ai-item">Perplexity</span>
+          <span class="ai-item">Grok</span>
+          <span class="ai-item">DeepSeek</span>
+          <span class="ai-item">Llama</span>
+        </div>
+      </div>
+      <div class="ai-col reverse" data-speed="slow">
+        <div class="ai-col-track">
+          <span class="ai-item is-accent">Midjourney</span>
+          <span class="ai-item">Runway</span>
+          <span class="ai-item">ElevenLabs</span>
+          <span class="ai-item is-accent">Sora</span>
+          <span class="ai-item">Suno</span>
+          <span class="ai-item">Notion AI</span>
+          <span class="ai-item">Firefly</span>
+          <span class="ai-item">Stable Diffusion</span>
+          <span class="ai-item is-accent">Midjourney</span>
+          <span class="ai-item">Runway</span>
+          <span class="ai-item">ElevenLabs</span>
+          <span class="ai-item is-accent">Sora</span>
+          <span class="ai-item">Suno</span>
+          <span class="ai-item">Notion AI</span>
+          <span class="ai-item">Firefly</span>
+          <span class="ai-item">Stable Diffusion</span>
+        </div>
+      </div>
+      <div class="ai-col" data-speed="fast">
+        <div class="ai-col-track">
+          <span class="ai-item">Zapier AI</span>
+          <span class="ai-item is-accent">Meta AI</span>
+          <span class="ai-item">HubSpot AI</span>
+          <span class="ai-item">Einstein AI</span>
+          <span class="ai-item">Amazon Q</span>
+          <span class="ai-item is-accent">Cursor</span>
+          <span class="ai-item">Watsonx</span>
+          <span class="ai-item">GitHub Copilot</span>
+          <span class="ai-item">Zapier AI</span>
+          <span class="ai-item is-accent">Meta AI</span>
+          <span class="ai-item">HubSpot AI</span>
+          <span class="ai-item">Einstein AI</span>
+          <span class="ai-item">Amazon Q</span>
+          <span class="ai-item is-accent">Cursor</span>
+          <span class="ai-item">Watsonx</span>
+          <span class="ai-item">GitHub Copilot</span>
+        </div>
+      </div>
+    </div>
+    <p class="ai-marquee-note">A Nexus é independente — não representa nem é afiliada às marcas citadas.</p>
+  </div>
+</section>
+
+<section id="planos" class="pin-stack">
+  <div class="pin-stack-inner">
+    <div class="pin-chip">
+      <video id="chip-video" data-bgvideo muted playsinline loop preload="none">
+        <source src="assets/video/chip-energia.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="pin-scrim"></div>
+    <div class="pin-words">
+      <span class="pin-word"><span class="pw-inner"><span class="pw-face pw-front">Presença</span><span class="pw-face pw-back" aria-hidden="true">Presença</span></span></span>
+      <span class="pin-word"><span class="pw-inner"><span class="pw-face pw-front">Alcance</span><span class="pw-face pw-back" aria-hidden="true">Alcance</span></span></span>
+      <span class="pin-word"><span class="pw-inner"><span class="pw-face pw-front">Performance</span><span class="pw-face pw-back" aria-hidden="true">Performance</span></span></span>
+      <span class="pin-word"><span class="pw-inner"><span class="pw-face pw-front">Operação Inteligente</span><span class="pw-face pw-back" aria-hidden="true">Operação Inteligente</span></span></span>
+    </div>
+    <div class="pin-panels">
+      <div class="pin-panel">
+        <h3 class="plan-name">Presença</h3>
+        <p class="plan-price">Sob consulta</p>
+        <ul class="plan-features">
+          <li>Site institucional ou página de vendas</li>
+          <li>Design responsivo, rápido e otimizado</li>
+        </ul>
+        <a href="mailto:jackinghouse98@gmail.com?subject=Quero%20saber%20mais%20sobre%20o%20plano%20Presen%C3%A7a" class="btn-line">Falar sobre esse plano</a>
+      </div>
+      <div class="pin-panel">
+        <h3 class="plan-name">Alcance</h3>
+        <p class="plan-price">Sob consulta</p>
+        <ul class="plan-features">
+          <li>Site institucional ou página de vendas</li>
+          <li>Gestão de redes sociais</li>
+          <li>Google Meu Negócio otimizado</li>
+        </ul>
+        <a href="mailto:jackinghouse98@gmail.com?subject=Quero%20saber%20mais%20sobre%20o%20plano%20Alcance" class="btn-line">Falar sobre esse plano</a>
+      </div>
+      <div class="pin-panel">
+        <h3 class="plan-name">Performance</h3>
+        <p class="plan-price">Sob consulta</p>
+        <ul class="plan-features">
+          <li>Site institucional ou página de vendas</li>
+          <li>Gestão de redes sociais e Google Meu Negócio</li>
+          <li>Tráfego pago com otimização inteligente</li>
+          <li>Dashboards e relatórios automáticos</li>
+        </ul>
+        <a href="mailto:jackinghouse98@gmail.com?subject=Quero%20saber%20mais%20sobre%20o%20plano%20Performance" class="btn-line">Falar sobre esse plano</a>
+      </div>
+      <div class="pin-panel">
+        <div class="plan-badge">MAIS COMPLETO</div>
+        <h3 class="plan-name">Operação Inteligente</h3>
+        <p class="plan-price">Sob consulta</p>
+        <ul class="plan-features">
+          <li>Site institucional ou página de vendas</li>
+          <li>Gestão de redes sociais e Google Meu Negócio</li>
+          <li>Tráfego pago com otimização inteligente</li>
+          <li>Dashboards e relatórios automáticos</li>
+          <li>Automação de planilhas, relatórios e orçamentos com IA</li>
+        </ul>
+        <a href="mailto:jackinghouse98@gmail.com?subject=Quero%20saber%20mais%20sobre%20o%20plano%20Opera%C3%A7%C3%A3o%20Inteligente" class="btn-glow">Falar sobre esse plano</a>
+      </div>
+    </div>
+    <div class="pin-hint">Role para ver os planos</div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Como aplicamos isso</div>
+      <h2 class="section-title">Sete frentes, um jeito só de trabalhar</h2>
+      <p class="section-sub">Peças conceituais no estilo visual da Nexus — não são trabalhos de clientes reais.</p>
+    </div>
+  </div>
+  <div class="reel-pin">
+    <div class="reel-stage">
+      <div class="reel-panel" style="background-image:url('assets/img/nexus-img-network.jpg')">
+        <div class="reel-copy">
+          <span class="reel-index">01 / 07</span>
+          <h3>Sites institucionais</h3>
+          <p>Sua vitrine digital, pronta pra causar a primeira boa impressão.</p>
+        </div>
+      </div>
+      <div class="reel-panel" style="background-image:url('assets/img/nexus-img-ecommerce.jpg')">
+        <div class="reel-copy">
+          <span class="reel-index">02 / 07</span>
+          <h3>Páginas de vendas</h3>
+          <p>Uma página pensada só pra converter visitante em cliente.</p>
+        </div>
+      </div>
+      <div class="reel-panel" style="background-image:url('assets/img/nexus-img-gmn.jpg')">
+        <div class="reel-copy">
+          <span class="reel-index">03 / 07</span>
+          <h3>Google Meu Negócio</h3>
+          <p>Apareça primeiro quando o cliente procurar por perto.</p>
+        </div>
+      </div>
+      <div class="reel-panel" style="background-image:url('assets/img/nexus-img-atendimento.jpg')">
+        <div class="reel-copy">
+          <span class="reel-index">04 / 07</span>
+          <h3>Mídias e automações</h3>
+          <p>Conteúdo e atendimento que continuam rodando mesmo quando você não está.</p>
+        </div>
+      </div>
+      <div class="reel-panel" style="background-image:url('assets/img/nexus-img-redes-sociais.jpg')">
+        <div class="reel-copy">
+          <span class="reel-index">05 / 07</span>
+          <h3>Gestão de redes sociais</h3>
+          <p>Presença ativa nas redes, sem tomar o seu dia.</p>
+        </div>
+      </div>
+      <div class="reel-panel" style="background-image:url('assets/img/nexus-img-dataflow.jpg')">
+        <div class="reel-copy">
+          <span class="reel-index">06 / 07</span>
+          <h3>Dashboards inteligentes</h3>
+          <p>Todo número importante do negócio, num painel só.</p>
+        </div>
+      </div>
+      <div class="reel-panel" style="background-image:url('assets/img/nexus-img-automacao.jpg')">
+        <div class="reel-copy">
+          <span class="reel-index">07 / 07</span>
+          <h3>Automação de planilhas e relatórios</h3>
+          <p>Relatório, planilha e orçamento prontos sem digitar tudo de novo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="reel-progress" aria-hidden="true">
+      <span class="reel-dot"></span><span class="reel-dot"></span><span class="reel-dot"></span><span class="reel-dot"></span><span class="reel-dot"></span><span class="reel-dot"></span><span class="reel-dot"></span>
+    </div>
+  </div>
+</section>
+
+<section id="processo">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Como funciona</div>
+      <h2 class="section-title">Um caminho claro, do primeiro contato ao resultado</h2>
+      <p class="section-sub">Cada etapa tem um entregável definido — você sempre sabe onde está e o que vem a seguir.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      <div class="tl-step">
+        <div class="tl-dot"></div>
+        <h3>Diagnóstico</h3>
+        <p>Análise da operação e identificação de onde a IA traz retorno mais rápido.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot"></div>
+        <h3>Plano</h3>
+        <p>Prioridades, prazos e investimento definidos antes de qualquer execução.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot"></div>
+        <h3>Implementação</h3>
+        <p>Entregas incrementais, testadas antes de irem pro ar.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-dot"></div>
+        <h3>Acompanhamento contínuo</h3>
+        <p>Ajustes de performance depois do lançamento, não só na entrega.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Perguntas frequentes</div>
+      <h2 class="section-title">Ainda com dúvidas?</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q"><h3>Não entendo nada de tecnologia. Consigo usar mesmo assim?</h3><span class="faq-plus" aria-hidden="true"></span></div>
+        <div class="faq-a"><p>Sim. Você não precisa entender nada de tecnologia. A gente cuida de tudo e ensina sua equipe a usar no dia a dia, em linguagem simples.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>Isso vai substituir minha equipe?</h3><span class="faq-plus" aria-hidden="true"></span></div>
+        <div class="faq-a"><p>Não. A ideia é tirar da sua equipe as tarefas repetitivas e chatas, pra sobrar tempo pro que realmente importa — atender bem, vender mais e cuidar do cliente.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>Quanto tempo leva pra ver resultado?</h3><span class="faq-plus" aria-hidden="true"></span></div>
+        <div class="faq-a"><p>Depende do escopo de cada projeto, mas a meta é entregar os primeiros resultados em até 30 dias.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>Minha empresa é pequena demais pra isso?</h3><span class="faq-plus" aria-hidden="true"></span></div>
+        <div class="faq-a"><p>Não. Adaptamos o tamanho da solução ao tamanho do seu negócio — pode começar bem simples.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>Quanto custa?</h3><span class="faq-plus" aria-hidden="true"></span></div>
+        <div class="faq-a"><p>Varia de acordo com o que você precisa. A primeira conversa é gratuita e já sai com um valor estimado.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>Funciona pro meu setor?</h3><span class="faq-plus" aria-hidden="true"></span></div>
+        <div class="faq-a"><p>A Nexus foi pensada pra pequenas e médias empresas de qualquer setor. Na primeira conversa a gente avalia junto se faz sentido pro seu caso.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h3>E se não funcionar como eu esperava?</h3><span class="faq-plus" aria-hidden="true"></span></div>
+        <div class="faq-a"><p>A gente sempre começa pequeno, testando antes de expandir. Assim você vê funcionando numa escala menor, sem risco grande, antes de crescer.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <video class="cta-bg-video" data-bgvideo muted playsinline loop preload="none">
+    <source src="assets/video/nexus-hero-bg.mp4" type="video/mp4">
+  </video>
+  <div class="cta-scrim"></div>
+  <div class="eq-lines"></div>
+  <div class="container">
+    <div class="cta-head">
+      <h2>Pronto pra parar de perder tempo com tarefa manual?</h2>
+      <p>Agende uma conversa gratuita e descubra, sem compromisso, por onde começar.</p>
+      <a href="mailto:jackinghouse98@gmail.com?subject=Quero%20agendar%20uma%20conversa%20-%20Nexus" class="btn-glow">Agendar diagnóstico gratuito</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo-mini">
+      <svg class="logo-icon" viewBox="0 0 100 100" role="img" aria-hidden="true">
+        <line class="l-line" x1="25" y1="25" x2="25" y2="75"/>
+        <line class="l-line l2" x1="75" y1="25" x2="75" y2="75"/>
+        <line class="l-line l3" x1="25" y1="25" x2="75" y2="75"/>
+        <circle class="l-node" cx="25" cy="25" r="7"/>
+        <circle class="l-node" cx="25" cy="75" r="7"/>
+        <circle class="l-node" cx="75" cy="25" r="7"/>
+        <circle class="l-node" cx="75" cy="75" r="7"/>
+        <circle class="l-node l-center" cx="50" cy="50" r="6"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-word">NEXUS <span class="l-ia">IA</span></span>
+        <span class="logo-tag">Consultoria Inteligente</span>
+      </div>
+    </div>
+    <div class="links">
+      <span class="local-time"></span>
+      <a href="#">Política de privacidade</a>
+      <a href="mailto:jackinghouse98@gmail.com">Contato</a>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61591720597679" target="_blank" rel="noopener" aria-label="Nexus IA no Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.4h2.5l.4-2.9h-2.9v-1.9c0-.85.24-1.43 1.46-1.43h1.55V4.8c-.27-.04-1.2-.12-2.27-.12-2.25 0-3.79 1.37-3.79 3.89v2.17H8v2.9h2.4V21h3.1z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/nexusiaconsultoria/" target="_blank" rel="noopener" aria-label="Nexus IA no Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.24 2.22.41.56.21.96.47 1.38.9.42.42.68.82.9 1.38.17.42.36 1.05.41 2.22.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.8-.41 2.22-.21.56-.47.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.05.36-2.22.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.24-2.22-.41-.56-.21-.96-.47-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.36-1.05-.41-2.22-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.24-1.8.41-2.22.21-.56.47-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.05-.36 2.22-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.84 5.84 0 0 0-1.39-2.13A5.87 5.87 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+<script>
+(function () {
+  var canvas = document.getElementById('hero-canvas');
+  var heroSection = canvas ? canvas.closest('.hero') : null;
+  if (!canvas || !heroSection || typeof THREE === 'undefined') return;
+
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+  } catch (e) { return; }
+
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+  camera.position.set(0, 0, 15);
+
+  function setSize() {
+    var w = heroSection.clientWidth;
+    var h = heroSection.clientHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+  setSize();
+
+  function makeGlowTexture(color) {
+    var size = 128;
+    var c = document.createElement('canvas');
+    c.width = size; c.height = size;
+    var ctx = c.getContext('2d');
+    var grad = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+    grad.addColorStop(0, 'rgba(' + color + ',1)');
+    grad.addColorStop(0.35, 'rgba(' + color + ',.7)');
+    grad.addColorStop(1, 'rgba(' + color + ',0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, size, size);
+    var tex = new THREE.CanvasTexture(c);
+    tex.needsUpdate = true;
+    return tex;
+  }
+
+  var nodeTex = makeGlowTexture('120,200,255');
+  var atmosphere = new THREE.Group();
+  scene.add(atmosphere);
+
+  var NODE_COUNT = 22;
+  var cloudRadius = 9.2;
+  var cloudNodes = [];
+  for (var i = 0; i < NODE_COUNT; i++) {
+    var phi = Math.acos(-1 + (2 * i) / NODE_COUNT);
+    var theta = Math.sqrt(NODE_COUNT * Math.PI) * phi;
+    var r = cloudRadius * (0.6 + Math.random() * 0.4);
+    cloudNodes.push(new THREE.Vector3(
+      r * Math.cos(theta) * Math.sin(phi),
+      r * Math.sin(theta) * Math.sin(phi),
+      r * Math.cos(phi)
+    ));
+  }
+  var cloudMaterial = new THREE.SpriteMaterial({
+    map: nodeTex, color: 0x7fc4ff, transparent: true,
+    blending: THREE.AdditiveBlending, depthWrite: false, opacity: 0.32
+  });
+  cloudNodes.forEach(function (pos) {
+    var sprite = new THREE.Sprite(cloudMaterial);
+    sprite.position.copy(pos);
+    var s = 0.4 + Math.random() * 0.3;
+    sprite.scale.set(s, s, 1);
+    atmosphere.add(sprite);
+  });
+  var cloudLinePositions = [];
+  for (var a = 0; a < cloudNodes.length; a++) {
+    for (var b = a + 1; b < cloudNodes.length; b++) {
+      if (cloudNodes[a].distanceTo(cloudNodes[b]) < 6.4 && Math.random() < 0.14) {
+        cloudLinePositions.push(cloudNodes[a].x, cloudNodes[a].y, cloudNodes[a].z);
+        cloudLinePositions.push(cloudNodes[b].x, cloudNodes[b].y, cloudNodes[b].z);
+      }
+    }
+  }
+  var cloudLineGeom = new THREE.BufferGeometry();
+  cloudLineGeom.setAttribute('position', new THREE.Float32BufferAttribute(cloudLinePositions, 3));
+  var cloudLines = new THREE.LineSegments(cloudLineGeom, new THREE.LineBasicMaterial({
+    color: 0x4fa8f5, transparent: true, opacity: 0.14, blending: THREE.AdditiveBlending
+  }));
+  atmosphere.add(cloudLines);
+
+  var mouseX = 0, mouseY = 0;
+  window.addEventListener('mousemove', function (e) {
+    mouseX = (e.clientX / window.innerWidth - 0.5);
+    mouseY = (e.clientY / window.innerHeight - 0.5);
+  });
+
+  var visible = true;
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+    });
+    io.observe(heroSection);
+  }
+
+  var clock = new THREE.Clock();
+
+  function animate() {
+    requestAnimationFrame(animate);
+    if (!visible) return;
+    var t = clock.getElapsedTime();
+    var scrollP = window.__heroScroll || 0;
+
+    if (!prefersReduced) {
+      atmosphere.rotation.y = -t * 0.045;
+      atmosphere.rotation.x = Math.sin(t * 0.1) * 0.08;
+    }
+    camera.position.x += (mouseX * 2.4 - camera.position.x) * 0.03;
+    camera.position.y += (-mouseY * 2.4 - camera.position.y) * 0.03;
+    var targetZ = 15 - scrollP * 4.5;
+    camera.position.z += (targetZ - camera.position.z) * 0.04;
+    camera.lookAt(0, 0, 0);
+
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener('resize', setSize);
+})();
+</script>
+<script src="assets/js/animations-v2.js"></script>
+
+</body>
+</html>
