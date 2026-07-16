@@ -133,7 +133,6 @@
       .fromTo('.hero p.sub', { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, ease: 'power2.out' }, '-=0.5')
       .fromTo('.hero-ctas', { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, ease: 'power2.out' }, '-=0.45')
       .fromTo('.trust-chips span', { y: 12, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.35')
-      .fromTo('.hero-meta', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: 'power2.out' }, '-=0.5')
       .fromTo('.scroll-cue', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: 'power2.out' }, '-=0.2');
 
     if (prefersReduced) return;
