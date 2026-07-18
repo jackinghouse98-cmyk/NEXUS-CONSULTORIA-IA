@@ -225,6 +225,7 @@
       { sel: '.section-head', y: 24 },
       { sel: '.fact-card', y: 34, stagger: true, groupSel: '.facts-grid', rotate: true },
       { sel: '.service-card', y: 30, stagger: true, groupSel: '.services-grid', rotate: true },
+      { sel: '.plan-card', y: 30, stagger: true, groupSel: '.plans-grid', rotate: true },
       { sel: '.tl-step', y: 26, stagger: true, groupSel: '.timeline' },
       { sel: '.faq-item', y: 18, stagger: true, groupSel: '.faq-list' },
       { sel: '.cta-head', y: 24 }
@@ -249,46 +250,6 @@
           scrollTrigger: { trigger: triggerEl, start: 'top 88%', once: true }
         }
       );
-    });
-  })();
-
-  /* ---------- SERVIÇOS: pin gigante com o chip 3D ---------- */
-  (function () {
-    var wrap = document.querySelector('.pin-stack-inner');
-    var words = gsap.utils.toArray('.pin-word');
-    var panels = gsap.utils.toArray('.pin-panel');
-    var chip = document.querySelector('.pin-chip');
-    if (!wrap || !words.length) return;
-
-    function setActive(idx) {
-      words.forEach(function (w, i) { w.classList.toggle('is-active', i === idx); });
-      panels.forEach(function (p, i) { p.classList.toggle('is-active', i === idx); });
-    }
-    setActive(0);
-
-    if (prefersReduced) return;
-
-    function onPinUpdate(self) {
-      var idx = Math.min(words.length - 1, Math.floor(self.progress * words.length));
-      setActive(idx);
-      if (chip) {
-        gsap.set(chip, {
-          scale: 1 + self.progress * 0.22,
-          rotation: self.progress * 6,
-          opacity: 0.9 - Math.abs(self.progress - 0.5) * 0.25
-        });
-      }
-    }
-
-    /* No mobile a distância de pin é menor: 300% de scroll travado fica pesado e
-       cansativo em telas pequenas, ainda mais com vídeo de fundo tocando junto. */
-    ScrollTrigger.matchMedia({
-      '(min-width: 761px)': function () {
-        ScrollTrigger.create({ trigger: wrap, start: 'top top', end: '+=300%', pin: true, scrub: 0.6, anticipatePin: 1, onUpdate: onPinUpdate });
-      },
-      '(max-width: 760px)': function () {
-        ScrollTrigger.create({ trigger: wrap, start: 'top top', end: '+=160%', pin: true, scrub: 0.6, anticipatePin: 1, onUpdate: onPinUpdate });
-      }
     });
   })();
 
