@@ -123,7 +123,7 @@
     window.addEventListener('resize', function () { if (open && window.innerWidth > 860) setOpen(false); });
   })();
 
-  /* ---------- HERO: entrada + sincronismo com o scroll ---------- */
+  /* ---------- HERO: entrada + vídeo cinematográfico scrubado pelo scroll ---------- */
   (function () {
     var hero = document.querySelector('.hero');
     if (!hero) return;
@@ -132,25 +132,68 @@
       .fromTo('.hero h1', { y: 26, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8, ease: 'power2.out' })
       .fromTo('.hero p.sub', { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, ease: 'power2.out' }, '-=0.5')
       .fromTo('.hero-ctas', { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, ease: 'power2.out' }, '-=0.45')
-      .fromTo('.trust-chips span', { y: 12, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.35')
       .fromTo('.scroll-cue', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: 'power2.out' }, '-=0.2');
 
     if (prefersReduced) return;
 
     var canvas = document.getElementById('hero-canvas');
     var cue = document.querySelector('.scroll-cue');
+    var video = document.getElementById('hero-cin-video');
 
-    ScrollTrigger.create({
-      trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6,
-      onUpdate: function (self) {
-        window.__heroScroll = self.progress;
-        if (canvas) canvas.style.opacity = String(1 - self.progress * 0.85);
+    ScrollTrigger.matchMedia({
+      /* Desktop: hero é pinada, o vídeo é scrubado quadro a quadro pelo scroll */
+      '(min-width: 861px)': function () {
+        if (video) {
+          video.pause();
+          video.addEventListener('loadeddata', function () {
+            /* força o browser a pintar um frame real (Safari/iOS não pinta nada até dar play uma vez) */
+            video.play().then(function () { video.pause(); }).catch(function () {});
+          }, { once: true });
+        }
+
+        ScrollTrigger.create({
+          trigger: hero, start: 'top top', end: '+=180%', pin: true, scrub: 0.6, anticipatePin: 1,
+          onUpdate: function (self) {
+            var p = self.progress;
+
+            var atmosphereP = Math.min(p / 0.5, 1);
+            window.__heroScroll = atmosphereP;
+            if (canvas) canvas.style.opacity = String(Math.max(0, 1 - atmosphereP * 0.85));
+
+            if (video && video.duration) video.currentTime = p * video.duration;
+
+            /* dica de scroll some rápido assim que o usuário começa a rolar */
+            if (cue) gsap.set(cue, { autoAlpha: 1 - gsap.utils.clamp(0, 1, p / 0.06) });
+
+            /* evita brigar com a animação de entrada antes do usuário começar a rolar */
+            if (p <= 0.001) return;
+
+            /* headline some quando a câmera começa a se aproximar (45%-60%) */
+            var outP = gsap.utils.clamp(0, 1, (p - 0.45) / 0.15);
+            gsap.set(['.hero h1', '.hero p.sub'], { autoAlpha: 1 - outP, y: outP * -20 });
+
+            /* CTA some junto com a headline e volta no fechamento (85%-100%), quando o dashboard aparece organizado e dourado */
+            var inP = gsap.utils.clamp(0, 1, (p - 0.85) / 0.15);
+            var ctaAlpha = Math.max(1 - outP, inP);
+            gsap.set('.hero-ctas', { autoAlpha: ctaAlpha, y: (1 - ctaAlpha) * -20 });
+          }
+        });
+      },
+      /* Mobile: sem pin (custo de scroll travado não compensa), vídeo roda em loop normal */
+      '(max-width: 860px)': function () {
+        if (video) { video.loop = true; video.play().catch(function () {}); }
+        if (cue) {
+          gsap.to(cue, { autoAlpha: 0, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: '15% top', scrub: true } });
+        }
+        ScrollTrigger.create({
+          trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6,
+          onUpdate: function (self) {
+            window.__heroScroll = self.progress;
+            if (canvas) canvas.style.opacity = String(1 - self.progress * 0.85);
+          }
+        });
       }
     });
-
-    if (cue) {
-      gsap.to(cue, { autoAlpha: 0, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: '15% top', scrub: true } });
-    }
   })();
 
   /* ---------- GIANT TEXT (Sobre): reveal blur-to-sharp por linha ---------- */
@@ -188,18 +231,32 @@
     });
   })();
 
-  /* ---------- PALAVRAS PERSUASIVAS: flip 3D trocando a fonte ---------- */
+  /* ---------- PALAVRAS EM DESTAQUE: aparecem separadas ao rolar, em sync com o video ---------- */
   (function () {
-    var words = gsap.utils.toArray('.word-flip .wf-inner');
-    if (!words.length || prefersReduced) return;
+    var wrap = document.querySelector('.giant-text-wrap');
+    var words = gsap.utils.toArray('.word-flip');
+    if (!wrap || !words.length) return;
 
-    gsap.fromTo(words,
-      { rotateX: 0 },
-      {
-        rotateX: 180, ease: 'none', stagger: 0.15,
-        scrollTrigger: { trigger: '.giant-text', start: 'top 75%', end: 'bottom 25%', scrub: 0.6 }
-      }
-    );
+    gsap.set(words, { color: '#4fe0ff', textShadow: '0 0 18px rgba(79,224,255,.55)' });
+
+    if (prefersReduced) {
+      gsap.set(words, { autoAlpha: 1 });
+      return;
+    }
+
+    gsap.set(words, { autoAlpha: 0 });
+
+    var tl = gsap.timeline({
+      scrollTrigger: { trigger: wrap, start: 'top top', end: 'bottom top', scrub: 0.6 }
+    });
+
+    words.forEach(function (word, i) {
+      tl.fromTo(word,
+        { autoAlpha: 0 },
+        { autoAlpha: 1, ease: 'none', duration: 1 },
+        i * 1.3
+      );
+    });
   })();
 
   /* ---------- FAIXAS (bands): parallax horizontal ao scroll ---------- */
